@@ -5,11 +5,12 @@
 import xml.etree.cElementTree as ET
 import random
 import sys
+import os
 import argparse
 from random import randint
 
 ##configuration
-wordLength = 4
+wordLength = 5
 wordCount = 3
 allowedChars = "!#$%&'()*+,-./:;<=>?@[\]^_{|}~"
 digit = 4
@@ -48,7 +49,9 @@ if args.allowed is not None:
 	allowedChars = args.allowed
 
 # parse XML
-tree = ET.parse('sanalista_filtered.xml')
+
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'sanalista_filtered.xml')
+tree = ET.parse(path)
 root = tree.getroot()
 
 # read file into array
